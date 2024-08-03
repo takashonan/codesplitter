@@ -7,9 +7,8 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty 
 from kivy.uix.togglebutton import ToggleButton
 
-CHAR_NUMBER_LIMIT = 8000
+CHAR_NUMBER_LIMIT = 4000
 options = [2000, 4000, 6000, 8000]
-default_value = 4000
 
 class MyApp(App):
     char_limit = StringProperty(str(CHAR_NUMBER_LIMIT)) 
@@ -23,7 +22,7 @@ class MyApp(App):
         for option in options:
             tb = ToggleButton(text=str(option)+'\nchars', group="char_limit")
             tb.bind(on_press=self.update_char_limit_and_split)
-            if option==default_value:
+            if option==CHAR_NUMBER_LIMIT:
                 tb.state = 'down' # Active
             self.root.ids.split_toggle_placeholder.add_widget(tb)
         self.root.ids.split_boxlayout.opacity = 1 if self.root.ids.text_input.text else 0

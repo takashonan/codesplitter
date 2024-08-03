@@ -9,8 +9,11 @@ BoxLayout:
         size_hint_y: 0.1
         height: 30
         Button:
-            text: 'Press this button to paste your long code in Clipboard'
+            text: '   1. Press this button to paste your long code in Clipboard'
             size_hint_x: 0.8
+            halign:'left'
+            valign:'center'
+            text_size: self.size 
             on_press: app.paste_from_clipboard()
         Button:
             text: 'Reset'
@@ -23,7 +26,10 @@ BoxLayout:
         opacity: 0
         Button:
             id: split_button
-            text: 'Split Code into Segments:'
+            text: '   2. Split Code into Segments:'
+            halign:'left'
+            valign:'center'
+            text_size: self.size 
             size_hint_x:0.5
             # on_press: app.split_text()
         BoxLayout:
