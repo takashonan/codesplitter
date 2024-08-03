@@ -10,3 +10,7 @@ Many of the recent generative AIs, such as Chat-GPT, Copilot, etc., have a chara
 4. Buttons labeled “0”, “1”, “2”… will appear. Press “0” to put the first set of characters (based on the number you selected in step 3) into the clipboard, then paste (Ctrl+V, or Command+V on Mac) into the generative AI screen and press the execution button of the generative AI.
 5. Once the generative AI’s response is complete, press “1”, then paste (`Ctrl+V`, or `Command+V` on Mac) into the generative AI screen and press the execution button of the generative AI.
 6. Continue in the same way with “2” and so on. This will input all the code into the generative AI.
+
+## Remark
+
+Assuming instructions are being written for an AI, divide the text into segments that are 100 characters shorter than the selected character count.
