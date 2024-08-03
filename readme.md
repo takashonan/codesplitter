@@ -7,6 +7,6 @@ Many of the recent generative AIs, such as Chat-GPT, Copilot, etc., have a chara
 1. Select all the code in the editor and copy it to the clipboard with `Ctrl+C` (or `Command+C` on Mac).
 2. Launch `codesplitter` and press the “1. Press this button to paste your long code in Clipboard” button.
 3. Select and press the button with the desired number of characters for splitting, located to the right of the section titled ‘2. Split Code into Segments’.
-4. Buttons labeled “0”, “1”, “2”… will appear. Press “0” to put the first 8000 characters into the clipboard, then paste (`Ctrl+V`, or `Command+V` on Mac) into the generative AI screen and press the execution button of the generative AI.
+4. Buttons labeled “0”, “1”, “2”… will appear. Press “0” to put the first set of characters (based on the number you selected in step 3) into the clipboard, then paste (Ctrl+V, or Command+V on Mac) into the generative AI screen and press the execution button of the generative AI.
 5. Once the generative AI’s response is complete, press “1”, then paste (`Ctrl+V`, or `Command+V` on Mac) into the generative AI screen and press the execution button of the generative AI.
 6. Continue in the same way with “2” and so on. This will input all the code into the generative AI.
