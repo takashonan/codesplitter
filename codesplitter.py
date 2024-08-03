@@ -5,8 +5,11 @@ from kivy.uix.textinput import TextInput
 from kivy.core.clipboard import Clipboard
 from kivy.lang import Builder
 from kivy.properties import StringProperty 
+from kivy.uix.togglebutton import ToggleButton
 
 CHAR_NUMBER_LIMIT = 8000
+options = [2000, 4000, 6000, 8000]
+default_value = 4000
 
 class MyApp(App):
     char_limit = StringProperty(str(CHAR_NUMBER_LIMIT)) 
@@ -16,12 +19,22 @@ class MyApp(App):
 
     def paste_from_clipboard(self):
         self.root.ids.text_input.text = Clipboard.paste()
-        self.root.ids.split_button.opacity = 1 if self.root.ids.text_input.text else 0
-
+        self.root.ids.split_toggle_placeholder.clear_widgets()
+        for option in options:
+            tb = ToggleButton(text=str(option)+'\nchars', group="char_limit")
+            tb.bind(on_press=self.update_char_limit_and_split)
+            if option==default_value:
+                tb.state = 'down' # Active
+            self.root.ids.split_toggle_placeholder.add_widget(tb)
+        self.root.ids.split_boxlayout.opacity = 1 if self.root.ids.text_input.text else 0
+    def update_char_limit_and_split(self, instance):
+        global CHAR_NUMBER_LIMIT
+        CHAR_NUMBER_LIMIT = int(instance.text.split('\n')[0])
+        self.split_text()
     def reset(self):
         self.root.ids.text_input.text = ''
         self.root.ids.scroll_layout.clear_widgets()
-        self.root.ids.split_button.opacity = 0
+        self.root.ids.split_boxlayout.opacity = 0
 
     def split_text(self):
         self.root.ids.scroll_layout.clear_widgets()
