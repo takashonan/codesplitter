@@ -14,6 +14,7 @@ CHAR_NUMBER_LIMIT = 4000
 options = [2000, 4000, 6000, 8000]
 
 class MyApp(App):
+    title = "Codesplitter"
     char_limit = StringProperty(str(CHAR_NUMBER_LIMIT)) 
     
     def build(self):
