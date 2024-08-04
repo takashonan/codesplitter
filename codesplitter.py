@@ -6,15 +6,22 @@ from kivy.core.clipboard import Clipboard
 from kivy.lang import Builder
 from kivy.properties import StringProperty 
 from kivy.uix.togglebutton import ToggleButton
+import os, sys
+from kivy.resources import resource_add_path
+
 
 CHAR_NUMBER_LIMIT = 4000
 options = [2000, 4000, 6000, 8000]
 
 class MyApp(App):
+    title = "Codesplitter"
     char_limit = StringProperty(str(CHAR_NUMBER_LIMIT)) 
     
     def build(self):
-        return Builder.load_file('codesplitter.kv')
+        filename = 'codesplitter.kv'
+        # if not(os.path.isfile(filename)):
+        #     filename = os.path.join(os.getcwd(), '_internal',filename)
+        return Builder.load_file(filename)
 
     def paste_from_clipboard(self):
         self.root.ids.text_input.text = Clipboard.paste()
@@ -65,4 +72,7 @@ class MyApp(App):
         instance.background_color = [0.7, 0.7, 0.7, 1]
 
 if __name__ == '__main__':
+    # For pyinstaller
+    if hasattr(sys, '_MEIPASS'):
+        resource_add_path(os.path.join(sys._MEIPASS))
     MyApp().run()

@@ -14,3 +14,7 @@ Many of the recent generative AIs, such as Chat-GPT, Copilot, etc., have a chara
 ## Remark
 
 Assuming instructions are being written for an AI, divide the text into segments that are 100 characters shorter than the selected character count.
+
+## Creating the Executable File
+
+By running pyinstaller codesplitter.spec in the terminal, a folder named codesplitter will be created inside the dist directory, and codesplitter.exe will be generated within it. Distributing this codesplitter folder will allow codesplitter to be executed on other computers. (Please do not delete the _internal folder as it is necessary.)
