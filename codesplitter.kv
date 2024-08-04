@@ -1,0 +1,45 @@
+#:kivy 1.11
+BoxLayout:
+    orientation: 'vertical'
+    TextInput:
+        id: text_input
+        multiline: True
+        size_hint_y: 0.1
+    BoxLayout:
+        size_hint_y: 0.1
+        height: 30
+        Button:
+            text: '   1. Press this button to paste your long code in clipboard'
+            size_hint_x: 0.8
+            halign:'left'
+            valign:'center'
+            text_size: self.size 
+            on_press: app.paste_from_clipboard()
+        Button:
+            text: 'Reset'
+            size_hint_x: 0.2
+            on_press: app.reset()
+    BoxLayout:
+        orientation:'horizontal'
+        id: split_boxlayout
+        size_hint_y: 0.1
+        opacity: 0
+        Button:
+            id: split_button
+            text: '   2. Split code into segments:'
+            halign:'left'
+            valign:'center'
+            text_size: self.size 
+            size_hint_x:0.5
+            # on_press: app.split_text()
+        BoxLayout:
+            id: split_toggle_placeholder
+            orientation:'horizontal'
+            size_hint_x:0.5
+    ScrollView:
+        size_hint_y:0.7
+        id: scroll
+        BoxLayout:
+            orientation: 'vertical'
+            id: scroll_layout
+            scroll_y:1
